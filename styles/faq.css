@@ -1,0 +1,146 @@
+/* FAQ Container */
+.faq-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.faq-title {
+  text-align: center;
+  color: #1b3f1c;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.faq-category {
+  color: #3a7d44;
+  margin: 25px 0 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #bfe3b4;
+}
+
+.faq-item {
+  margin-bottom: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+  background-color: #f8f9fa;
+  padding: 15px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.faq-question:hover {
+  background-color: #e9ecef;
+}
+
+.faq-toggle {
+  font-size: 1.5rem;
+  transition: transform 0.3s;
+}
+
+.faq-answer {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  background-color: white;
+}
+
+.faq-item.active .faq-answer {
+  padding: 20px;
+  max-height: 1000px;
+}
+
+.faq-item.active .faq-toggle {
+  transform: rotate(45deg);
+}
+
+/* Feedback Form */
+.feedback-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 300px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.w3-input {
+  padding: 12px;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .faq-container {
+    padding: 10px;
+  }
+
+  .faq-title {
+    font-size: 1.5rem;
+  }
+
+  .feedback-container {
+    padding: 20px;
+  }
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+.w3-display-left {
+  padding-top: 120px;
+  /* Give space below header */
+}
+
+/* Rest of your existing styles... */
+.w3-bar .w3-button {
+  padding: 16px;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 50px;
+  margin-top: 20px;
+}
+
+/* Create two unequal columns that floats next to each other */
+.leftcolumn {
+  float: left;
+  width: 65%;
+}
+
+.rightcolumn {
+  float: left;
+  width: 33%;
+  padding-left: 20px;
+}
+
+.logo {
+  width: 26px;
+  height: 26px;
+  margin-left: 10px;
+}
+
+.w3-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

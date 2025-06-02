@@ -1,0 +1,33 @@
+body {
+  font-family: "Raleway", sans-serif;
+  background-color: #bfe3b4;
+}
+
+.project-card {
+  transition: transform 0.3s;
+  margin-bottom: 20px;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.status-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.logo {
+  height: 1.5em;
+  /* Relative to font size */
+  width: auto;
+  /* Maintain aspect ratio */
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+}
