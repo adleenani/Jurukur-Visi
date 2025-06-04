@@ -101,158 +101,165 @@ include 'templates/header_admin_faq.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JURUKUR VISI</title>
+    <title>FAQ & Feedback (Admin)| Jurukur Visi</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="styles/admin_faq.css"> -->
     <style>
-        /* FAQ Container */
-        .faq-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
+        /* Base Styles */
+        .admin-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            padding-top: 50px;
         }
 
-        .faq-title {
-            text-align: center;
-            color: #1b3f1c;
-            margin-bottom: 30px;
-            font-size: 2rem;
+        .admin-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgb(6, 39, 9);
         }
 
-        .faq-category {
-            color: #3a7d44;
-            margin: 25px 0 15px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #bfe3b4;
-        }
-
-        .faq-item {
-            margin-bottom: 15px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .faq-question {
-            background-color: #f8f9fa;
-            padding: 15px 20px;
+        .admin-header h1 {
             font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s;
+            color: #3a7d44;
         }
 
-        .faq-question:hover {
-            background-color: #e9ecef;
-        }
-
-        .faq-toggle {
-            font-size: 1.5rem;
-            transition: transform 0.3s;
-        }
-
-        .faq-answer {
-            padding: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            background-color: white;
-        }
-
-        .faq-item.active .faq-answer {
-            padding: 20px;
-            max-height: 1000px;
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(45deg);
-        }
-
-        /* Feedback Form */
-        .feedback-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 300px;
-            background-color: #f8f9fa;
-            border-radius: 8px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .w3-input {
-            padding: 12px;
-            border-radius: 4px;
-        }
-
-        @media (max-width: 768px) {
-            .faq-container {
-                padding: 10px;
-            }
-
-            .faq-title {
-                font-size: 1.5rem;
-            }
-
-            .feedback-container {
-                padding: 20px;
-            }
-        }
-
-        body,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: "Raleway", sans-serif;
-        }
-
-        .w3-display-left {
-            padding-top: 120px;
-            /* Give space below header */
-        }
-
-        /* Rest of your existing styles... */
-        .w3-bar .w3-button {
-            padding: 16px;
-        }
-
+        /* Card Styles */
         .card {
-            background-color: #ffffff;
-            padding: 50px;
-            margin-top: 20px;
+            border: none;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
         }
 
-        /* Create two unequal columns that floats next to each other */
-        .leftcolumn {
-            float: left;
-            width: 65%;
+        .card-header {
+            padding: 1rem 1.5rem;
+            font-weight: 600;
         }
 
-        .rightcolumn {
-            float: left;
-            width: 33%;
-            padding-left: 20px;
+        /* Form Styles */
+        .needs-validation .form-control:invalid,
+        .needs-validation .form-select:invalid {
+            border-color: #dc3545;
+        }
+
+        .needs-validation .form-control:valid,
+        .needs-validation .form-select:valid {
+            border-color: #198754;
+        }
+
+        /* Table Styles */
+        .table {
+            margin-bottom: 0;
+        }
+
+        .table th {
+            font-weight: 600;
+            background-color: #bfe3b4 !important;
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: rgba(28, 61, 42, 0.02);
+        }
+
+        /* Button Styles */
+        .btn {
+            padding: 0.375rem 0.75rem;
+            font-weight: 500;
+        }
+
+        .btn-sm {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        /* Badge Styles */
+        .badge {
+            font-weight: 500;
+            padding: 0.35em 0.65em;
+        }
+
+        /* Responsive Table */
+        @media (max-width: 768px) {
+            .table-responsive {
+                border: 0;
+            }
+
+            .table thead {
+                display: none;
+            }
+
+            .table tr {
+                display: block;
+                margin-bottom: 1rem;
+                border: 1px solid #dee2e6;
+                border-radius: 0.25rem;
+            }
+
+            .table td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+                border-bottom: 1px solidrgb(21, 64, 108);
+            }
+
+            .table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 1rem;
+                width: 45%;
+                padding-right: 1rem;
+                font-weight: 600;
+                text-align: left;
+            }
+
+            .table td.text-nowrap {
+                justify-content: flex-end;
+            }
+        }
+
+        /* Pagination */
+        .pagination {
+            margin-top: 1.5rem;
+        }
+
+        .page-item.active .page-link {
+            background-color: #bfe3b4;
+            border-color: #bfe3b4;
+        }
+
+        .page-link {
+            color: #bfe3b4;
+        }
+
+        /* Alert Messages */
+        .alert {
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Featured FAQ badge */
+        .badge.bg-warning {
+            font-size: 0.75rem;
+            padding: 0.2em 0.4em;
+        }
+
+        /* Form Checkbox */
+        .form-check-input:checked {
+            background-color: #bfe3b4;
+            border-color: #bfe3b4;
         }
 
         .logo {
             width: 26px;
             height: 26px;
             margin-left: 10px;
-        }
-
-        .w3-card {
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>

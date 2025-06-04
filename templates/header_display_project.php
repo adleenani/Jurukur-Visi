@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>Project List | Jurukur Visi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -60,7 +61,7 @@
 
         /* Add padding to body to account for fixed navbar */
         body {
-            padding-top: 80px;
+            padding-top: 100px;
         }
     </style>
 </head>

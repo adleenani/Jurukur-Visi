@@ -437,9 +437,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && verify_csrf_token($_POST['csrf_toke
         document.getElementById('signupForm').addEventListener('submit', function (e) {
             const password = document.getElementById('password').value;
 
-            if (password.length < 8) {
+            if (password.length < 14) {
                 e.preventDefault();
-                alert('Password must be at least 8 characters');
+                alert('Password must be at least 14 characters');
                 return false;
             }
 

@@ -59,8 +59,8 @@
     <!-- Navbar (same as your other pages) -->
     <div class="w3-top">
         <div class="w3-card1 w3-bar w3-white w3-card" id="myNavbar">
-            <a href="home.php" class="w3-bar-item w3-button w3-wide">JURUKUR VISI<img src="images/jvisi_logo.png"
-                    class="logo"></a>
+            <a href="home.php" class="w3-bar-item w3-button w3-wide">JURUKUR VISI
+                <img src="images/jvisi_logo.png" class="logo"></a>
             <div class="w3-right w3-hide-small">
                 <a href="admin_dashboard.php" class="w3-bar-item w3-button"><i class="fa fa-tachometer"></i>
                     DASHBOARD</a>

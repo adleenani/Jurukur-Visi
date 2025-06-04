@@ -92,13 +92,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && verify_csrf_token($_POST['csrf_toke
                         <input type="text" id="username" name="username" required
                             value="<?php echo isset($_POST['username']) ? sanitizeInput($_POST['username']) : ''; ?>"
                             placeholder="Enter your username">
-                        <i class="fas fa-user"></i>
+                        <i class="fas fa-user" style="padding-right: 10px;"></i>
                     </div>
 
                     <div class="luxury-input">
                         <label for="password">PASSWORD</label>
                         <input type="password" id="password" name="password" required placeholder="Enter your password">
-                        <i class="fas fa-lock"></i>
+                        <i class="fas fa-lock" style="padding-right: 10px;"></i>
                     </div>
 
                     <button type="submit" class="access-btn">

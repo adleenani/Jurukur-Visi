@@ -65,7 +65,7 @@
 <body>
     <!-- Navbar (sit on top) -->
     <div class="w3-top">
-        <div class="w3-card w3-bar w3-white w3-bar" id="myNavbar" style="padding: 8px">
+        <div class="w3-card w3-bar w3-white w3-bar" id="myNavbar" >
             <a href="home.php" class="w3-bar-item w3-button w3-wide">JURUKUR VISI<img src="images/jvisi_logo.png"
                     class="logo"></a>
             <!-- Right-sided navbar links -->

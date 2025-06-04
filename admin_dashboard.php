@@ -46,7 +46,6 @@ include 'templates/header_admin_dashboard.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JURUKUR VISI | adlina hanani</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -55,7 +54,6 @@ include 'templates/header_admin_dashboard.php';
 </head>
 
 <body>
-
     <!-- Main Content -->
     <div class="main-content" id="main-content" style="margin-bottom: 87px; margin-top: 70px">
         <div class="container-fluid">
