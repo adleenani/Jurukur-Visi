@@ -2,14 +2,14 @@
 
 <?php
 require_once 'config.php';
-requireLogin();
+requireAdmin();
 
 // Handle logout
 if (isset($_GET['logout'])) {
     $_SESSION['message'] = "You have successfully logged out.";
     setcookie(session_name(), '', time() - 42000);
     session_destroy();
-    redirect('home.php');
+    redirect('home_public.php');
 }
 
 // Check if project_id is provided

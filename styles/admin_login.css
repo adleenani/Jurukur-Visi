@@ -1,24 +1,24 @@
 :root {
   --ivory: #f8f9f5;
-  /* Soft green-tinged ivory */
   --emerald: #2e8b57;
-  /* Classic rich emerald */
   --forest: #355e3b;
-  /* Deep forest green */
   --sage: #9caf88;
-  /* Muted sage green */
   --mint: #c1e1c1;
-  /* Soft pastel mint */
   --moss: #6b8e23;
-  /* Earthy moss green */
   --charcoal: #1a1a1a;
-  /* Darker charcoal for contrast */
-   --error: #dc3545;
+  --error: #dc3545;
 }
 
-@font-face {
+html,
+body {
+  width: 30%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
   font-family: "Raleway", sans-serif;
-  src: url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+  color: var(--charcoal);
+  position: relative;
 }
 
 body {
@@ -28,12 +28,6 @@ body {
       transparent 20%
     ),
     linear-gradient(135deg, #f0f5f0 0%, #e1e8e1 100%);
-  min-height: 100vh;
-  font-family: "Raleway", sans-serif;
-  margin: 0;
-  color: var(--charcoal);
-  position: relative;
-  overflow-x: hidden;
 }
 
 body::before {
@@ -53,9 +47,7 @@ body::before {
 }
 
 .luxury-header {
-  background: transparent;
   padding: 2rem 0;
-  position: relative;
   text-align: center;
 }
 
@@ -85,7 +77,6 @@ body::before {
   align-items: center;
   min-height: 60vh;
   padding: 2rem;
-  position: relative;
 }
 
 .access-portal {
@@ -93,13 +84,10 @@ body::before {
   max-width: 480px;
   background: rgba(248, 249, 245, 0.95);
   backdrop-filter: blur(10px);
-  border-radius: 0;
   border: 1px solid rgba(46, 139, 87, 0.2);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05),
     inset 0 0 0 1px rgba(255, 255, 255, 0.8);
   position: relative;
-  overflow: hidden;
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .access-portal::before {
@@ -124,7 +112,6 @@ body::before {
   font-size: 1.8rem;
   letter-spacing: 1px;
   color: var(--forest);
-  position: relative;
 }
 
 .portal-header h2 span {
@@ -156,7 +143,6 @@ body::before {
   background: transparent;
   border: none;
   border-bottom: 1px solid rgba(53, 94, 59, 0.3);
-  font-family: "Playfair Display", serif;
   font-size: 1rem;
   color: var(--charcoal);
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
@@ -187,7 +173,6 @@ body::before {
   background: linear-gradient(to right, var(--emerald), var(--forest));
   border: none;
   color: white;
-  font-family: "Playfair Display", serif;
   font-size: 1rem;
   letter-spacing: 1px;
   cursor: pointer;
@@ -200,26 +185,6 @@ body::before {
 .access-btn:hover {
   background: linear-gradient(to right, var(--forest), var(--emerald));
   letter-spacing: 2px;
-}
-
-.access-btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  transition: 0.5s;
-}
-
-.access-btn:hover::before {
-  left: 100%;
 }
 
 .portal-links {
@@ -236,34 +201,15 @@ body::before {
   font-size: 0.9rem;
   letter-spacing: 0.5px;
   transition: all 0.3s;
-  position: relative;
 }
 
 .portal-link:hover {
   color: var(--emerald);
 }
 
-.portal-link::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--emerald);
-  transition: width 0.3s;
-}
-
-.portal-link:hover::after {
-  width: 100%;
-}
-
 .luxury-footer {
-  background: transparent;
   padding: 2rem 0;
   text-align: center;
-  margin-top: auto;
-  position: relative;
 }
 
 .luxury-footer::before {
@@ -283,11 +229,11 @@ body::before {
   letter-spacing: 0.5px;
 }
 
-/* Animated background elements */
+/* Decorative circles - fixed to prevent scrolling */
 .decorative-circle {
-  position: absolute;
-  width: 300px;
-  height: 300px;
+  position: fixed;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   background: radial-gradient(
     circle,
@@ -295,23 +241,30 @@ body::before {
     transparent 70%
   );
   z-index: -1;
+  pointer-events: none;
 }
 
 .circle-1 {
-  top: -150px;
-  right: -150px;
+  top: -50px;
+  right: -50px;
 }
 
 .circle-2 {
-  bottom: -100px;
-  left: -100px;
+  bottom: -50px;
+  left: -50px;
 }
 
-/* Status message styling */
-.status-message {
-  padding: 1rem;
-  margin-bottom: 2rem;
-  border-left: 4px solid var(--emerald);
-  background-color: rgba(193, 225, 193, 0.3);
-  font-size: 0.9rem;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .decorative-circle {
+    display: none;
+  }
+
+  .access-portal {
+    max-width: 95%;
+  }
+
+  .portal-body {
+    padding: 1.5rem;
+  }
 }

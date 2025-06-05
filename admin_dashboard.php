@@ -3,14 +3,15 @@
 <?php
 require_once 'config.php';
 require_once 'functions.php';
-requireLogin();
+requireAdmin();
 
 // Handle logout
 if (isset($_GET['logout'])) {
+    $_SESSION['success'] = "You have been successfully logged out";
     $_SESSION = [];
     setcookie(session_name(), '', time() - 42000);
     session_destroy();
-    redirect('home.php');
+    redirect('home_public.php');
 }
 
 try {
@@ -55,8 +56,9 @@ include 'templates/header_admin_dashboard.php';
 
 <body>
     <!-- Main Content -->
-    <div class="main-content" id="main-content" style="margin-bottom: 87px; margin-top: 70px">
+    <div class="main-content" id="main-content" style="margin-bottom: 87px; margin-top: 50px">
         <div class="container-fluid">
+
             <!-- Page Header -->
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2><i class="fas fa-tachometer-alt"></i> Dashboard Overview</h2>
@@ -204,11 +206,8 @@ include 'templates/header_admin_dashboard.php';
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
-
 
     <!-- Include footer -->
     <?php include 'templates/footer.php'; ?>

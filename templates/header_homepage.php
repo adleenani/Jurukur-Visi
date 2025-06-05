@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/header_homepage.css">
 </head>
 
 <body>
@@ -17,14 +17,14 @@
     <!-- Navbar (sit on top) -->
     <div class="w3-top">
         <div class="w3-card w3-bar w3-white w3-bar" id="myNavbar">
-            <a href="home.php" class="w3-bar-item w3-button w3-wide">JURUKUR VISI<img src="images/jvisi_logo.png"
+            <a href="homepage.php" class="w3-bar-item w3-button w3-wide">JURUKUR VISI<img src="images/jvisi_logo.png"
                     class="logo"></a>
             <!-- Right-sided navbar links -->
             <div class="w3-right w3-hide-small">
+                <a href="home_public.php" class="w3-bar-item w3-button">MENU</a>
                 <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
                 <a class="w3-bar-item w3-button" href="display_project.php"><i class="fa fa-wrench"></i> PROJECT</a>
                 <a class="w3-bar-item w3-button" href="faq.php"><i class="fa fa-question-circle"></i> FAQ</a>
-                <a class="w3-bar-item w3-button" href="login.php"><i class="fa fa-user"></i> LOG IN</a>
             </div>
             <!-- Hamburger menu for mobile -->
             <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
@@ -33,17 +33,6 @@
             </a>
         </div>
     </div>
-
-    <!-- Sidebar on small screens when clicking the menu icon -->
-    <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large"
-        style="display:none" id="mySidebar">
-        <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close
-            ×</a>
-        <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
-        <a href="project_list.php" onclick="w3_close()" class="w3-bar-item w3-button">PROJECT</a>
-        <a href="faq.php" onclick="w3_close()" class="w3-bar-item w3-button">FAQ</a>
-        <a href="#" class="w3-bar-item w3-button">LOG IN</a>
-    </nav>
 
     <!-- Header with full-height image -->
     <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home" style="margin-top: 1px">

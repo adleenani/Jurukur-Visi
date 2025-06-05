@@ -6,14 +6,14 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require_once 'config.php';
 require_once 'functions.php';
-requireLogin();
+requireAdmin();
 
 // Handle logout
 if (isset($_GET['logout'])) {
     $_SESSION['message'] = "You have successfully logged out.";
     setcookie(session_name(), '', time() - 42000);
     session_destroy();
-    redirect('home.php');
+    redirect('home_public.php');
 }
 
 $errors = [];
@@ -107,162 +107,7 @@ include 'templates/header_project_add.php';
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="styles/project_add.css"> -->
-    <style>
-        body,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: "Raleway", sans-serif;
-        }
-
-        :root {
-            --primary-color: #1b3f1c;
-            --secondary-color: #bfe3b4;
-            --accent-color: #3a7d44;
-        }
-
-        body {
-            font-family: "Raleway", sans-serif;
-            background-color: #c1e1c1;
-            color: #333;
-            padding-top: 80px;
-            /* Navbar height */
-        }
-
-        .logo {
-            width: 26px;
-            height: 26px;
-            margin-left: 10px;
-            vertical-align: middle;
-        }
-
-        .form-container {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 30px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-header {
-            text-align: center;
-            margin-bottom: 30px;
-            color: var(--primary-color);
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-label {
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-
-        .form-control:focus {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 0.25rem rgba(58, 125, 68, 0.25);
-            outline: none;
-        }
-
-        .btn-submit {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            width: 100%;
-            transition: all 0.3s;
-        }
-
-        .btn-submit:hover {
-            background-color: var(--accent-color);
-        }
-
-        .btn-reset {
-            background-color: #6c757d;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            width: 100%;
-            transition: all 0.3s;
-            margin-top: 10px;
-        }
-
-        .btn-reset:hover {
-            background-color: #5a6268;
-        }
-
-        .status-toggle {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-
-        .status-option {
-            flex: 1;
-            text-align: center;
-            padding: 10px;
-            border: 2px solid #ddd;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .status-option:first-child {
-            border-radius: 6px 0 0 6px;
-        }
-
-        .status-option:last-child {
-            border-radius: 0 6px 6px 0;
-        }
-
-        .status-option.active {
-            background-color: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-        }
-
-        .status-option i {
-            margin-right: 8px;
-        }
-
-        .duration-hint {
-            color: #6c757d;
-            font-size: 0.85rem;
-            margin-top: 5px;
-        }
-
-        /* Navbar adjustments */
-        .w3-top {
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .w3-bar {
-            padding: 16px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles/projectadd.css">
 </head>
 
 <body>

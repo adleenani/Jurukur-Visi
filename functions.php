@@ -60,7 +60,6 @@ function requireLogin()
     if (!isLoggedIn()) {
         $_SESSION['redirect_url'] = $_SERVER['REQUEST_URI'];
         $_SESSION['error'] = "Please login to continue";
-        redirect('home.php');
     }
 }
 
@@ -81,20 +80,37 @@ function dbQuery($sql, $params = [])
 /**
  * Validate and format date
  */
-function validateDate($date, $format = 'Y-m-d') {
+function validateDate($date, $format = 'Y-m-d')
+{
     $d = DateTime::createFromFormat($format, $date);
     return $d && $d->format($format) === $date;
 }
 
-function calculateProjectProgress($project) {
+function calculateProjectProgress($project)
+{
     $start = strtotime($project['project_start']);
     $end = strtotime($project['project_end']);
     $now = time();
-    
-    if ($now <= $start) return 0;
-    if ($now >= $end) return 100;
-    
+
+    if ($now <= $start)
+        return 0;
+    if ($now >= $end)
+        return 100;
+
     $progress = ($now - $start) / ($end - $start) * 100;
     return round($progress, 1);
+}
+
+// Additional security checks (recommended)
+function requireAdmin() {
+    if (!isLoggedIn()) {
+        $_SESSION['error'] = "Please login first";
+        redirect('admin_login.php');
+    }
+    
+    if ($_SESSION['user_role'] !== 'admin') {
+        $_SESSION['error'] = "You don't have sufficient privileges";
+        redirect('home_public.php');
+    }
 }
 ?>

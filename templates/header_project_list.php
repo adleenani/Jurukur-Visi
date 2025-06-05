@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Edit Project | Jurukur Visi</title>
+    <title>Project List | Jurukur Visi</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -59,7 +59,7 @@
     <!-- Navbar (same as your other pages) -->
     <div class="w3-top">
         <div class="w3-card1 w3-bar w3-white w3-card" id="myNavbar">
-            <a href="home.php" class="w3-bar-item w3-button w3-wide">JURUKUR VISI
+            <a class="w3-bar-item w3-button w3-wide">JURUKUR VISI
                 <img src="images/jvisi_logo.png" class="logo"></a>
             <div class="w3-right w3-hide-small">
                 <a href="admin_dashboard.php" class="w3-bar-item w3-button"><i class="fa fa-tachometer"></i>
@@ -75,15 +75,4 @@
             </a>
         </div>
     </div>
-
-    <!-- Sidebar on small screens when clicking the menu icon -->
-    <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large"
-        style="display:none" id="mySidebar">
-        <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close</a>
-        <a href="admin_dashboard.php" onclick="w3_close()"
-            class="w3-bar-item w3-button w3-large w3-padding-16">DASHBOARD</a>
-        <a href="project_add.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding-16">ADD PROJECT</a>
-        <a href="?logout" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">LOG OUT
-            (<?php echo sanitizeInput($_SESSION['username']); ?>)</a>
-    </nav>
 </body>

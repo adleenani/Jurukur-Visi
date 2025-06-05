@@ -3,14 +3,14 @@
 <?php
 require_once 'config.php';
 require_once 'functions.php';
-requireLogin();
+requireAdmin();
 
 // Handle logout
 if (isset($_GET['logout'])) {
     $_SESSION['message'] = "You have successfully logged out.";
     setcookie(session_name(), '', time() - 42000);
     session_destroy();
-    redirect('home.php');
+    redirect('home_public.php');
 }
 
 // Handle FAQ operations
@@ -101,14 +101,20 @@ include 'templates/header_admin_faq.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ & Feedback (Admin)| Jurukur Visi</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="styles/admin_faq.css"> -->
+    <!-- <link rel="stylesheet" href="admin_faq.css"> -->
     <style>
-        /* Base Styles */
+        /* ===== BASE STYLES ===== */
+        :root {
+            --primary-color: #3a7d44;
+            --secondary-color: #bfe3b4;
+            --text-dark: #1a1a1a;
+            --border-color: #dee2e6;
+        }
+
         .admin-container {
             max-width: 1400px;
             margin: 2rem auto;
@@ -116,31 +122,35 @@ include 'templates/header_admin_faq.php';
             padding-top: 50px;
         }
 
+        /* ===== HEADER STYLES ===== */
         .admin-header {
             margin-bottom: 2rem;
             padding-bottom: 1rem;
-            border-bottom: 1px solid rgb(6, 39, 9);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .admin-header h1 {
             font-weight: 600;
-            color: #3a7d44;
+            color: var(--primary-color);
         }
 
-        /* Card Styles */
+        /* ===== CARD STYLES ===== */
         .card {
             border: none;
             border-radius: 0.5rem;
             overflow: hidden;
             margin-bottom: 1.5rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
         }
 
         .card-header {
             padding: 1rem 1.5rem;
             font-weight: 600;
+            background-color: var(--primary-color);
+            color: white;
         }
 
-        /* Form Styles */
+        /* ===== FORM STYLES ===== */
         .needs-validation .form-control:invalid,
         .needs-validation .form-select:invalid {
             border-color: #dc3545;
@@ -151,24 +161,30 @@ include 'templates/header_admin_faq.php';
             border-color: #198754;
         }
 
-        /* Table Styles */
+        .form-check-input:checked {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        /* ===== TABLE STYLES ===== */
         .table {
             margin-bottom: 0;
         }
 
         .table th {
             font-weight: 600;
-            background-color: #bfe3b4 !important;
+            background-color: var(--secondary-color) !important;
         }
 
         .table-hover tbody tr:hover {
-            background-color: rgba(28, 61, 42, 0.02);
+            background-color: rgba(58, 125, 68, 0.05);
         }
 
-        /* Button Styles */
+        /* ===== BUTTON STYLES ===== */
         .btn {
             padding: 0.375rem 0.75rem;
             font-weight: 500;
+            transition: all 0.2s;
         }
 
         .btn-sm {
@@ -176,13 +192,49 @@ include 'templates/header_admin_faq.php';
             font-size: 0.875rem;
         }
 
-        /* Badge Styles */
+        .btn-success {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-success:hover {
+            background-color: #2e6635;
+            border-color: #2e6635;
+        }
+
+        /* ===== BADGE STYLES ===== */
         .badge {
             font-weight: 500;
             padding: 0.35em 0.65em;
         }
 
-        /* Responsive Table */
+        .badge.bg-warning {
+            font-size: 0.75rem;
+            padding: 0.2em 0.4em;
+        }
+
+        /* ===== ALERT STYLES ===== */
+        .alert {
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ===== PAGINATION ===== */
+        .pagination {
+            margin-top: 1.5rem;
+        }
+
+        .page-item.active .page-link {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        .page-link {
+            color: var(--primary-color);
+        }
+
+        /* ===== RESPONSIVE STYLES ===== */
         @media (max-width: 768px) {
             .table-responsive {
                 border: 0;
@@ -195,7 +247,7 @@ include 'templates/header_admin_faq.php';
             .table tr {
                 display: block;
                 margin-bottom: 1rem;
-                border: 1px solid #dee2e6;
+                border: 1px solid var(--border-color);
                 border-radius: 0.25rem;
             }
 
@@ -206,7 +258,6 @@ include 'templates/header_admin_faq.php';
                 text-align: right;
                 padding-left: 50%;
                 position: relative;
-                border-bottom: 1px solidrgb(21, 64, 108);
             }
 
             .table td::before {
@@ -218,48 +269,6 @@ include 'templates/header_admin_faq.php';
                 font-weight: 600;
                 text-align: left;
             }
-
-            .table td.text-nowrap {
-                justify-content: flex-end;
-            }
-        }
-
-        /* Pagination */
-        .pagination {
-            margin-top: 1.5rem;
-        }
-
-        .page-item.active .page-link {
-            background-color: #bfe3b4;
-            border-color: #bfe3b4;
-        }
-
-        .page-link {
-            color: #bfe3b4;
-        }
-
-        /* Alert Messages */
-        .alert {
-            border-radius: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Featured FAQ badge */
-        .badge.bg-warning {
-            font-size: 0.75rem;
-            padding: 0.2em 0.4em;
-        }
-
-        /* Form Checkbox */
-        .form-check-input:checked {
-            background-color: #bfe3b4;
-            border-color: #bfe3b4;
-        }
-
-        .logo {
-            width: 26px;
-            height: 26px;
-            margin-left: 10px;
         }
     </style>
 </head>

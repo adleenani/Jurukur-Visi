@@ -6,7 +6,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require_once 'config.php';
 require_once 'functions.php';
-requireLogin();
+requireAdmin();
 
 // Check if required parameters exist
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

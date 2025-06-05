@@ -1,0 +1,42 @@
+body {
+  font-family: "Raleway", sans-serif;
+}
+
+body,
+html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.status-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.logo {
+  width: 26px;
+  height: 26px;
+  margin-left: 10px;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+}
+
+.card1 {
+  background-color: #ffffff;
+  padding: 40px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.w3-top .w3-card1 {
+  border-radius: 0 !important;
+}
