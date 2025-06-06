@@ -141,90 +141,11 @@ include 'templates/header_project_edit.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        :root {
-            --primary-color: #1b3f1c;
-            --secondary-color: #bfe3b4;
-            --accent-color: #3a7d44;
-            --light-grey: #f8f9fa;
-            --dark-grey: #6c757d;
-        }
-
-        .project-form-container {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 30px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-form-header {
-            text-align: center;
-            margin-bottom: 30px;
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 15px;
-        }
-
-        .form-label {
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: block;
-            color: var(--primary-color);
-        }
-
-        .status-toggle {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            border-radius: 6px;
-            overflow: hidden;
-        }
-
-        .status-option {
-            flex: 1;
-            text-align: center;
-            padding: 10px;
-            border: 2px solid #ddd;
-            cursor: pointer;
-            transition: all 0.3s;
-            background-color: var(--light-grey);
-        }
-
-        .status-option.active {
-            background-color: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-        }
-
-        .required-field::after {
-            content: " *";
-            color: red;
-        }
-
-        .duration-hint {
-            color: var(--dark-grey);
-            font-size: 0.85rem;
-            margin-top: 5px;
-        }
-
-        @media (max-width: 768px) {
-            .project-form-container {
-                padding: 20px;
-                margin: 15px;
-            }
-
-            .status-toggle {
-                flex-direction: column;
-            }
-
-            .status-option {
-                border-radius: 6px !important;
-                margin-bottom: 5px;
-            }
-        }
-    </style>
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/project_edit.css">
 </head>
 
 <body>
