@@ -1,4 +1,4 @@
-<!-- USER LOGIN PAGE -->
+<!-- ADMIN LOGIN PAGE -->
 
 <?php
 require_once 'config.php';

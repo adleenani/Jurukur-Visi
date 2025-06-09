@@ -127,78 +127,81 @@ include 'templates/header_faq.php';
     </style>
 </head>
 
-<body>
-    <div class="container">
-        <div class="row justify-content-center gx-5">
-            <!-- FAQ Section -->
-            <div class="col-lg-7">
-                <div class="faq-container">
-                    <h2 class="faq-title" style="font-weight: bold; margin-bottom: 10px;">Frequently Asked Questions
-                    </h2>
+<body class="d-flex flex-column min-vh-100">
+    <main class="flex-grow-1">
+        <div class="container">
+            <div class="row justify-content-center gx-5">
+                <!-- FAQ Section -->
+                <div class="col-lg-7">
+                    <div class="faq-container">
+                        <h2 class="faq-title" style="font-weight: bold; margin-bottom: 10px;">Frequently Asked Questions
+                        </h2>
 
-                    <?php if (!empty($faqs)): ?>
-                        <?php
-                        $current_category = null;
-                        foreach ($faqs as $faq):
-                            if ($current_category !== $faq['category_name']):
-                                $current_category = $faq['category_name'];
-                                ?>
-                                <h4 class="faq-category"><?php echo htmlspecialchars($current_category); ?></h4>
-                            <?php endif; ?>
+                        <?php if (!empty($faqs)): ?>
+                            <?php
+                            $current_category = null;
+                            foreach ($faqs as $faq):
+                                if ($current_category !== $faq['category_name']):
+                                    $current_category = $faq['category_name'];
+                                    ?>
+                                    <h4 class="faq-category"><?php echo htmlspecialchars($current_category); ?></h4>
+                                <?php endif; ?>
 
-                            <div class="faq-item">
-                                <div class="faq-question">
-                                    <?php echo htmlspecialchars($faq['question']); ?>
-                                    <span class="faq-toggle">+</span>
+                                <div class="faq-item">
+                                    <div class="faq-question">
+                                        <?php echo htmlspecialchars($faq['question']); ?>
+                                        <span class="faq-toggle">+</span>
+                                    </div>
+                                    <div class="faq-answer">
+                                        <?php echo nl2br(htmlspecialchars($faq['answer'])); ?>
+                                    </div>
                                 </div>
-                                <div class="faq-answer">
-                                    <?php echo nl2br(htmlspecialchars($faq['answer'])); ?>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <p class="text-center">No FAQs found. Please check back later.</p>
-                    <?php endif; ?>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <p class="text-center">No FAQs found. Please check back later.</p>
+                        <?php endif; ?>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Feedback Section -->
-            <div class="col-lg-5">
-                <div class="feedback-container">
-                    <h3 class="text-center" style="font-weight: bold; margin-bottom: 20px;">Send us your feedback!</h3>
+                <!-- Feedback Section -->
+                <div class="col-lg-5">
+                    <div class="feedback-container">
+                        <h3 class="text-center" style="font-weight: bold; margin-bottom: 20px;">Send us your feedback!
+                        </h3>
 
-                    <?php if (isset($_SESSION['feedback_message'])): ?>
-                        <div class="alert alert-success">
-                            <?php echo $_SESSION['feedback_message'];
-                            unset($_SESSION['feedback_message']); ?>
-                        </div>
-                    <?php endif; ?>
+                        <?php if (isset($_SESSION['feedback_message'])): ?>
+                            <div class="alert alert-success">
+                                <?php echo $_SESSION['feedback_message'];
+                                unset($_SESSION['feedback_message']); ?>
+                            </div>
+                        <?php endif; ?>
 
-                    <?php if (isset($_SESSION['feedback_error'])): ?>
-                        <div class="alert alert-danger">
-                            <?php echo $_SESSION['feedback_error'];
-                            unset($_SESSION['feedback_error']); ?>
-                        </div>
-                    <?php endif; ?>
+                        <?php if (isset($_SESSION['feedback_error'])): ?>
+                            <div class="alert alert-danger">
+                                <?php echo $_SESSION['feedback_error'];
+                                unset($_SESSION['feedback_error']); ?>
+                            </div>
+                        <?php endif; ?>
 
-                    <form method="post">
-                        <input type="hidden" name="csrf_token" value="<?php echo csrf_token(); ?>">
+                        <form method="post">
+                            <input type="hidden" name="csrf_token" value="<?php echo csrf_token(); ?>">
 
-                        <div class="mb-3">
-                            <input class="form-control" type="text" placeholder="Name" required name="name">
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" placeholder="Message" required name="message"
-                                rows="4"></textarea>
-                        </div>
-                        <button class="btn btn-dark w-100" type="submit">
-                            <i class="fa fa-paper-plane"></i> SEND MESSAGE
-                        </button>
-                    </form>
+                            <div class="mb-3">
+                                <input class="form-control" type="text" placeholder="Name" required name="name">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" placeholder="Message" required name="message"
+                                    rows="4"></textarea>
+                            </div>
+                            <button class="btn btn-dark w-100" type="submit">
+                                <i class="fa fa-paper-plane"></i> SEND MESSAGE
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
     <script>
         // FAQ toggle functionality
@@ -228,6 +231,5 @@ include 'templates/header_faq.php';
 </body>
 
 </html>
-
 
 <?php include 'templates/footer.php'; ?>

@@ -55,13 +55,6 @@ function isLoggedIn()
     return isset($_SESSION['user_id'], $_SESSION['ip']) && $_SESSION['ip'] === $_SERVER['REMOTE_ADDR'];
 }
 
-function requireLogin()
-{
-    if (!isLoggedIn()) {
-        $_SESSION['redirect_url'] = $_SERVER['REQUEST_URI'];
-        $_SESSION['error'] = "Please login to continue";
-    }
-}
 
 // Database query helper with prepared statements
 function dbQuery($sql, $params = [])
@@ -77,29 +70,6 @@ function dbQuery($sql, $params = [])
     }
 }
 
-/**
- * Validate and format date
- */
-function validateDate($date, $format = 'Y-m-d')
-{
-    $d = DateTime::createFromFormat($format, $date);
-    return $d && $d->format($format) === $date;
-}
-
-function calculateProjectProgress($project)
-{
-    $start = strtotime($project['project_start']);
-    $end = strtotime($project['project_end']);
-    $now = time();
-
-    if ($now <= $start)
-        return 0;
-    if ($now >= $end)
-        return 100;
-
-    $progress = ($now - $start) / ($end - $start) * 100;
-    return round($progress, 1);
-}
 
 // Additional security checks (recommended)
 function requireAdmin() {

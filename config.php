@@ -46,7 +46,7 @@ try {
 // Security headers
 header("X-Frame-Options: DENY");                // Blocks iframes (prevents clickjacking)
 header("X-Content-Type-Options: nosniff");      // Stops browsers from interpreting files as a different MIME type
-header("X-XSS-Protection: 1; mode=block");     // Enables XSS filtering in browsers
+header("X-XSS-Protection: 1; mode=block");      // Enables XSS filtering in browsers
 header("Referrer-Policy: strict-origin-when-cross-origin"); // Controls referrer info leakage
 
 // Include functions

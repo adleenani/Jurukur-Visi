@@ -170,6 +170,7 @@ include 'templates/header_project_edit.php';
             <form method="post"
                 action="project_edit.php?project_id=<?php echo htmlspecialchars($project['project_id']); ?>">
                 <input type="hidden" name="csrf_token" value="<?php echo sanitizeInput(csrf_token()); ?>">
+                
                 <!-- Project Status Toggle -->
                 <div class="form-group">
                     <label class="form-label required-field">Project Status</label>
