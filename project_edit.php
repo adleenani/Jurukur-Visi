@@ -141,7 +141,7 @@ include 'templates/header_project_edit.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
@@ -188,6 +188,7 @@ include 'templates/header_project_edit.php';
                         id="projectStatus">
                 </div>
 
+                <!-- Project ID -->
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -207,6 +208,7 @@ include 'templates/header_project_edit.php';
                     </div>
                 </div>
 
+                <!-- Start Date -->
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -226,6 +228,7 @@ include 'templates/header_project_edit.php';
                     </div>
                 </div>
 
+                <!-- Project Location -->
                 <div class="form-group">
                     <label class="form-label required-field">Project Location</label>
                     <input type="text" name="project_location" class="form-control" placeholder="Project Location"
@@ -233,6 +236,7 @@ include 'templates/header_project_edit.php';
                         value="<?php echo isset($project) ? htmlspecialchars($project['project_location']) : (isset($_POST['project_location']) ? sanitizeInput($_POST['project_location']) : ''); ?>">
                 </div>
 
+                <!-- Project Duration -->
                 <div class="form-group">
                     <label class="form-label">Project Duration</label>
                     <input type="text" name="project_duration" id="project_duration" class="form-control"
@@ -241,6 +245,7 @@ include 'templates/header_project_edit.php';
                     <p class="duration-hint">Duration will be calculated based on start and end dates</p>
                 </div>
 
+                <!-- Project Services -->
                 <div class="form-group">
                     <label class="form-label required-field">Project Services</label>
                     <select name="project_services" class="form-control" required>

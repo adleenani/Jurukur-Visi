@@ -129,7 +129,7 @@ include 'templates/header_project_add.php';
         <form method="post" action="project_add.php">
             <input type="hidden" name="csrf_token" value="<?php echo sanitizeInput(csrf_token()); ?>">
 
-            <!-- Project Status Toggle -->
+            <!-- Project Status -->
             <div class="form-group">
                 <label class="form-label">Project Status</label>
                 <div class="status-toggle">
@@ -143,6 +143,7 @@ include 'templates/header_project_add.php';
                 <input type="hidden" name="project_status" value="active" id="projectStatus">
             </div>
 
+            <!-- Project ID -->
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
@@ -160,6 +161,7 @@ include 'templates/header_project_add.php';
                 </div>
             </div>
 
+             <!-- Start Date -->
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
@@ -179,12 +181,14 @@ include 'templates/header_project_add.php';
                 </div>
             </div>
 
+             <!-- Project Location -->
             <div class="form-group">
                 <label class="form-label">Project Location</label>
                 <input type="text" name="project_location" class="form-control" placeholder="Project Location" required
                     value="<?php echo isset($_POST['project_location']) ? sanitizeInput($_POST['project_location']) : ''; ?>">
             </div>
 
+             <!-- Project Duration -->
             <div class="form-group">
                 <label class="form-label">Project Duration</label>
                 <input type="text" name="project_duration" id="project_duration" class="form-control"
@@ -192,6 +196,7 @@ include 'templates/header_project_add.php';
                 <p class="duration-hint">Duration will be calculated based on start and end dates</p>
             </div>
 
+             <!-- Project Services -->
             <div class="form-group">
                 <label class="form-label">Project Services</label>
                 <select name="project_services" class="form-control" required>
