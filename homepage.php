@@ -306,12 +306,6 @@ include 'templates/header_homepage.php';
     <!-- Include footer -->
     <?php include 'templates/footer_home.php'; ?>
 
-    <!-- Include login form if needed -->
-    <?php if ($show_login_modal && !empty($errors)): ?>
-        <?php include 'templates/login_form.php'; ?>
-    <?php endif; ?>
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Modal Image Gallery
